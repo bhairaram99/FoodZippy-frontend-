@@ -26,30 +26,24 @@ function StatsSection() {
         entries.forEach((entry) => {
           if (entry.isIntersecting && !hasAnimated) {
             setHasAnimated(true);
-            stats.forEach((stat, index) => {
-              const duration = 2000;
-              const steps = 60;
-              const increment = stat.value / steps;
-              let current = 0;
+            const duration = 2000;
+            const startTime = performance.now();
+            let animationFrameId: number;
 
-              const timer = setInterval(() => {
-                current += increment;
-                if (current >= stat.value) {
-                  setCounts((prev) => {
-                    const newCounts = [...prev];
-                    newCounts[index] = stat.value;
-                    return newCounts;
-                  });
-                  clearInterval(timer);
-                } else {
-                  setCounts((prev) => {
-                    const newCounts = [...prev];
-                    newCounts[index] = Math.floor(current);
-                    return newCounts;
-                  });
-                }
-              }, duration / steps);
-            });
+            const animate = (currentTime: number) => {
+              const elapsed = currentTime - startTime;
+              const progress = Math.min(elapsed / duration, 1);
+
+              setCounts(
+                stats.map((stat) => Math.floor(stat.value * progress))
+              );
+
+              if (progress < 1) {
+                animationFrameId = requestAnimationFrame(animate);
+              }
+            };
+
+            animationFrameId = requestAnimationFrame(animate);
           }
         });
       },

@@ -6,7 +6,6 @@ interface Restaurant {
   tags: string[];
   rating: number;
   description: string;
-  color: string;
 }
 
 const restaurants: Restaurant[] = [
@@ -67,31 +66,31 @@ function RestaurantsSection() {
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
-    const observers = cardRefs.current.map((ref, index) => {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              setVisibleCards((prev) => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const index = cardRefs.current.indexOf(entry.target as HTMLDivElement);
+          if (index !== -1 && entry.isIntersecting) {
+            setVisibleCards((prev) => {
+              if (!prev[index]) {
                 const newVisible = [...prev];
                 newVisible[index] = true;
                 return newVisible;
-              });
-            }
-          });
-        },
-        { threshold: 0.1 }
-      );
+              }
+              return prev;
+            });
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
 
-      if (ref) {
-        observer.observe(ref);
-      }
-
-      return observer;
+    cardRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref);
     });
 
     return () => {
-      observers.forEach((observer) => observer.disconnect());
+      observer.disconnect();
     };
   }, []);
 
@@ -112,10 +111,19 @@ function RestaurantsSection() {
             <div
               key={index}
               ref={(el) => (cardRefs.current[index] = el)}
-              className={`bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-500 transform hover:scale-105 hover:shadow-2xl ${
+              className={`bg-white rounded-2xl shadow-lg overflow-hidden transition-opacity transition-transform duration-500 hover:shadow-2xl ${
                 visibleCards[index] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
-              style={{ transitionDelay: `${index * 100}ms` }}
+              style={{
+                transitionDelay: `${index * 100}ms`,
+                transform: visibleCards[index] ? 'none' : 'translateY(40px)',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'scale(1.05)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'scale(1)';
+              }}
             >
               <div
                 className={`h-32 ${colors[index]} bg-center bg-cover bg-no-repeat rounded-t-2xl`}

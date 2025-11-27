@@ -1,54 +1,71 @@
 import { useEffect, useState } from "react";
 
 function Hero() {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
-
   const images = [
     "/food-image1.jpg",
     "/food-image2.jpg",
     "/food-image3.jpg",
-    "/food-image4.jpg"
+    "/food-image4.jpg",
   ];
 
-  const [currentBg, setCurrentBg] = useState(0);
+  const [current, setCurrent] = useState(0);
+  const [loaded, setLoaded] = useState(false);
+
+  // Preload images
+  useEffect(() => {
+    const load = async () => {
+      const promises = images.map(
+        (src) =>
+          new Promise((resolve) => {
+            const img = new Image();
+            img.src = src;
+            img.onload = resolve;
+          })
+      );
+      await Promise.all(promises);
+      setLoaded(true);
+    };
+    load();
+  }, []);
 
   useEffect(() => {
+    if (!loaded) return;
     const id = setInterval(() => {
-      setCurrentBg((prev) => (prev + 1) % images.length);
-    }, 4000); // slide every 4 seconds
+      setCurrent((prev) => (prev + 1) % images.length);
+    }, 4000);
     return () => clearInterval(id);
-  }, []);
+  }, [loaded]);
 
   return (
     <section className="relative w-full h-screen overflow-hidden text-white">
 
-      {/* SLIDER WRAPPER */}
+      {/* SLIDES */}
       <div
-        className="absolute inset-0 flex transition-transform duration-[1500ms] ease-in-out"
-        style={{ transform: `translateX(-${currentBg * 100}%)` }}
+        className="absolute inset-0 flex transition-transform duration-1000 ease-in-out"
+        style={{
+          transform: `translateX(-${current * 100}%)`,
+          willChange: "transform",
+          contain: "layout",
+        }}
       >
-        {images.map((img) => (
-          <div
-            key={img}
-            className="w-full h-full flex-shrink-0 bg-cover bg-center"
-            style={{ backgroundImage: `url(${img})` }}
-          ></div>
+        {images.map((src, i) => (
+          <img
+            key={src}
+            src={src}
+            loading={i === 0 ? "eager" : "lazy"}
+            decoding="async"
+            className="w-full h-full object-cover flex-shrink-0"
+            draggable="false"
+          />
         ))}
       </div>
 
-      {/* DARK OVERLAY */}
+      {/* OVERLAY */}
       <div className="absolute inset-0 bg-black/30"></div>
 
-      {/* CONTENT */}
-      <div
-        className={`relative z-20 max-w-7xl mx-auto px-6 text-center font-century-gothic transition-all duration-1000
-        ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
-      >
-        <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold leading-tight mt-24">
+      {/* TEXT CONTENT */}
+      <div className="relative z-20 max-w-7xl mx-auto px-6 text-center mt-28">
+        <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold">
           Delivering Love to Students
         </h1>
 

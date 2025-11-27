@@ -41,7 +41,13 @@ function PartnershipSection() {
             return (
               <div
                 key={index}
-                className="bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 transform hover:scale-105 hover:shadow-2xl"
+                className="bg-white rounded-2xl shadow-lg overflow-hidden transition-shadow duration-300 hover:shadow-2xl"
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'scale(1.05)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'scale(1)';
+                }}
               >
                 <div className={`h-48 bg-gradient-to-br ${partner.color} flex items-center justify-center`}>
                   <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center shadow-xl">

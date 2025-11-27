@@ -41,8 +41,14 @@ function WhatWeOffer() {
           {services.map((service, index) => (
             <div 
               key={index}
-              className="bg-gradient-to-br from-white to-red-50 p-10 rounded-3xl shadow-md hover:shadow-2xl transition-all duration-300 transform hover:scale-105 flex flex-col items-center text-center"
+              className="bg-gradient-to-br from-white to-red-50 p-10 rounded-3xl shadow-md hover:shadow-2xl transition-shadow duration-300 flex flex-col items-center text-center"
               style={{ width: '280px', height: '340px', margin: '0 auto' }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'scale(1.05)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'scale(1)';
+              }}
             >
               <div className="w-20 h-20 rounded-full bg-red-50 flex items-center justify-center mb-6">
                 {service.icon}

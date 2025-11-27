@@ -7,16 +7,16 @@ interface NavbarProps {
 
 function Navbar({ onOpenStoryPanel }: NavbarProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const colors = ['#E82335', '#F1D11A'];
+  const colors = ['#E82335', '#F7C150'];
   const [bgIndex, setBgIndex] = useState(0);
 
   useEffect(() => {
-    const timer = window.setInterval(() => {
+    const timer = setInterval(() => {
       setBgIndex((i) => (i + 1) % colors.length);
     }, 3000);
 
-    return () => window.clearInterval(timer);
-  }, []);
+    return () => clearInterval(timer);
+  }, [colors.length]);
 
   return (
     <nav
