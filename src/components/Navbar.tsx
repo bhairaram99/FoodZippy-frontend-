@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 
 interface NavbarProps {
@@ -7,17 +7,37 @@ interface NavbarProps {
 
 function Navbar({ onOpenStoryPanel }: NavbarProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const colors = ['#E82335', '#F1D11A'];
+  const [bgIndex, setBgIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setBgIndex((i) => (i + 1) % colors.length);
+    }, 3000);
+
+    return () => window.clearInterval(timer);
+  }, []);
 
   return (
-    <nav className="bg-gradient-to-r from-yellow-400 to-orange-500 sticky top-0 z-50">
+    <nav
+      className="sticky top-0 z-50 transition-colors duration-500"
+      style={{ backgroundColor: colors[bgIndex] }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-24 py-2">
           <div className="flex-shrink-0">
-            <img 
-              src="/Foodzippy_Final_1-removebg-preview.png" 
-              alt="Foodzippy logo" 
-              className="h-28 w-auto object-contain"
+            <img
+              src="/Foodzippy_Final_1.jpg"
+              alt="Foodzippy logo"
+              className="h-14 sm:h-18 md:h-24 w-auto object-contain"
               loading="lazy"
+              onError={(e) => {
+                const el = e.currentTarget as HTMLImageElement;
+                el.onerror = null;
+                el.src = 'data:image/svg+xml;utf8,' + encodeURIComponent(
+                  '<svg xmlns="http://www.w3.org/2000/svg" width="160" height="48" viewBox="0 0 160 48"><rect width="100%" height="100%" fill="%23F59E0B" rx="8"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="18" fill="white">Foodzippy</text></svg>'
+                );
+              }}
             />
           </div>
 

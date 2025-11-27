@@ -105,11 +105,13 @@ function RestaurantsSection() {
               }`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
-              <div className={`h-32 ${colors[index]} flex items-center justify-center`}>
-                <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-lg">
-                  <span className="text-3xl font-bold text-gray-700">{restaurant.name.charAt(0)}</span>
-                </div>
-              </div>
+              <div
+                className={`h-32 ${colors[index]} bg-center bg-cover bg-no-repeat rounded-t-2xl`}
+                style={{
+                  backgroundImage: `url('/restorent1.jpg')`
+                }}
+                aria-hidden="true"
+              />
 
               <div className="p-6">
                 <div className="flex justify-between items-start mb-3">

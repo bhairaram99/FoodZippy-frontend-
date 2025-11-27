@@ -7,15 +7,22 @@ function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12 pt-8">
           <div>
             <div className="mb-6">
-              <img 
-                src="/Foodzippy_Final_1-removebg-preview.png" 
-                alt="Foodzippy logo" 
-                className="h-28 w-auto object-contain"
+              <img
+                src="/Foodzippy_Final_1.jpg"
+                alt="Foodzippy logo"
+                className="h-16 sm:h-20 md:h-28 w-auto object-contain"
                 loading="lazy"
+                onError={(e) => {
+                  const el = e.currentTarget as HTMLImageElement;
+                  el.onerror = null;
+                  el.src = 'data:image/svg+xml;utf8,' + encodeURIComponent(
+                    '<svg xmlns="http://www.w3.org/2000/svg" width="160" height="48" viewBox="0 0 160 48"><rect width="100%" height="100%" fill="%23F59E0B" rx="8"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="18" fill="white">Foodzippy</text></svg>'
+                  );
+                }}
               />
             </div>
             <p className="text-gray-400 mb-6 leading-relaxed">
-              Delivering love to students in Agra & Noida. Built by students, for students.
+              Delivering love to students in Agra & Noida. Built for students.
             </p>
             <div className="flex gap-4">
               <a
@@ -92,9 +99,9 @@ function Footer() {
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold mb-4">Newsletter</h4>
+            
             <p className="text-gray-400 mb-4 text-sm">
-              Subscribe to get updates on offers and news
+              Subscribe to get updates on offers 
             </p>
             <div className="flex gap-2">
               <input
@@ -112,7 +119,7 @@ function Footer() {
         <div className="border-t border-gray-800 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
             <div className="text-center md:text-left">
-              Agra & Noida • +91 98765 43210 • hello@foodzippy.com
+              Contact us • hello@foodzippy.com
             </div>
             <div>
               © 2024 Foodzippy. All rights reserved.

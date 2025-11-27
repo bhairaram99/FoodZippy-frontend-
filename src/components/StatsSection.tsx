@@ -9,10 +9,10 @@ interface Stat {
 }
 
 const stats: Stat[] = [
-  { icon: Users, value: 5000, suffix: '+', label: 'Happy Students' },
-  { icon: Store, value: 50, suffix: '+', label: 'Partner Restaurants' },
-  { icon: Package, value: 10000, suffix: '+', label: 'Orders Delivered' },
-  { icon: MapPin, value: 2, suffix: '', label: 'Cities Launching' }
+  { icon: Users, value: 1500, suffix: '+', label: 'Happy Students' },
+  { icon: Store, value: 100, suffix: '+', label: 'Partner Restaurants' },
+  { icon: Package, value: 5000, suffix: '+', label: 'Orders Delivered' },
+  { icon: MapPin, value: 5, suffix: '', label: 'Cities Going Live Soon' }
 ];
 
 function StatsSection() {
