@@ -2,7 +2,11 @@
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'century-gothic': ['Century Gothic', 'Apple Gothic', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 };

@@ -50,6 +50,18 @@ const restaurants: Restaurant[] = [
 
 const colors = ['bg-red-200', 'bg-green-200', 'bg-blue-200', 'bg-yellow-200', 'bg-purple-200', 'bg-pink-200'];
 
+const getRestaurantImage = (restaurantName: string): string => {
+  const imageMap: { [key: string]: string } = {
+    'Dosa Corner': '/dosa.jpg',
+    'Pizza Hub': '/pizza.jpg',
+    'Burger Nation': '/bureger.jpg',
+    'Wok Express': '/wrk.jpg',
+    'Spice Paradise': '/restorent1.jpg',
+    'Cafe Delights': '/restorent1.jpg'
+  };
+  return imageMap[restaurantName] || '/restorent1.jpg';
+};
+
 function RestaurantsSection() {
   const [visibleCards, setVisibleCards] = useState<boolean[]>(new Array(restaurants.length).fill(false));
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -108,7 +120,7 @@ function RestaurantsSection() {
               <div
                 className={`h-32 ${colors[index]} bg-center bg-cover bg-no-repeat rounded-t-2xl`}
                 style={{
-                  backgroundImage: `url('/restorent1.jpg')`
+                  backgroundImage: `url('${getRestaurantImage(restaurant.name)}')`
                 }}
                 aria-hidden="true"
               />

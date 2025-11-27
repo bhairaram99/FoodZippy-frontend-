@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, MapPin } from 'lucide-react';
 
 interface NavbarProps {
   onOpenStoryPanel: () => void;
@@ -23,13 +23,13 @@ function Navbar({ onOpenStoryPanel }: NavbarProps) {
       className="sticky top-0 z-50 transition-colors duration-500"
       style={{ backgroundColor: colors[bgIndex] }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-8xl mx-auto px-6 sm:px-7 lg:px-9">
         <div className="flex justify-between items-center h-24 py-2">
           <div className="flex-shrink-0">
             <img
-              src="/Foodzippy_Final_1.jpg"
+              src="/foodzip2.png"
               alt="Foodzippy logo"
-              className="h-14 sm:h-18 md:h-24 w-auto object-contain"
+              className="h-28 sm:h-32 md:h-40 w-auto object-contain"
               loading="lazy"
               onError={(e) => {
                 const el = e.currentTarget as HTMLImageElement;
@@ -57,7 +57,11 @@ function Navbar({ onOpenStoryPanel }: NavbarProps) {
             <a href="#how-it-works" className="text-white hover:text-yellow-100 transition-colors duration-200 font-medium">
               How It Works
             </a>
-            <button className="bg-white text-orange-500 px-6 py-2 rounded-full hover:bg-yellow-100 transition-all duration-200 transform hover:scale-105 font-medium">
+            <button className="text-white hover:text-yellow-100 transition-colors duration-200 font-medium flex items-center gap-2">
+              <MapPin size={20} />
+              Choose your city
+            </button>
+            <button className=" text-white px-6 py-2 rounded-full hover:text-yellow-100 transition-all duration-200  ">
               Order Now
             </button>
           </div>
@@ -94,7 +98,11 @@ function Navbar({ onOpenStoryPanel }: NavbarProps) {
             <a href="#how-it-works" className="block px-3 py-2 text-white hover:bg-yellow-500 rounded-md font-medium">
               How It Works
             </a>
-            <button className="w-full bg-white text-orange-500 px-6 py-2 rounded-full hover:bg-yellow-100 transition-colors font-medium">
+            <button className="w-full px-3 py-2 text-white hover:bg-yellow-500 rounded-md font-medium flex items-center gap-2">
+              <MapPin size={20} />
+              Choose your city
+            </button>
+            <button className="w-full bg-white text-orange-500 px-6 py-2 rounded-full hover:bg-yellow-100 transition-colors font-medium active:bg-white focus:bg-white">
               Order Now
             </button>
           </div>

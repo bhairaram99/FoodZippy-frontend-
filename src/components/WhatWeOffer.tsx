@@ -37,17 +37,18 @@ function WhatWeOffer() {
           <p className="text-lg text-gray-500">Multiple ways to enjoy delicious food - all in one app</p>
         </div>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
           {services.map((service, index) => (
             <div 
               key={index}
-              className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-200 transform hover:-translate-y-1 flex flex-col items-center text-center"
+              className="bg-gradient-to-br from-white to-red-50 p-10 rounded-3xl shadow-md hover:shadow-2xl transition-all duration-300 transform hover:scale-105 flex flex-col items-center text-center"
+              style={{ width: '280px', height: '340px', margin: '0 auto' }}
             >
-              <div className="w-16 h-16 rounded-full bg-red-50 flex items-center justify-center mb-4">
+              <div className="w-20 h-20 rounded-full bg-red-50 flex items-center justify-center mb-6">
                 {service.icon}
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">{service.title}</h3>
-              <p className="text-gray-500 text-sm">{service.description}</p>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">{service.title}</h3>
+              <p className="text-gray-500 text-base">{service.description}</p>
             </div>
           ))}
         </div>
