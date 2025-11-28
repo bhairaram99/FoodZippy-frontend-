@@ -18,7 +18,7 @@ const services = [
   },
   {
     icon: <Car className="w-6 h-6 text-red-500" />,
-    title: "Drive Through",
+    title: "Drive-Thru",
     description: "Quick pickup without leaving your car"
   },
   {

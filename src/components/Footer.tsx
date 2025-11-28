@@ -6,11 +6,11 @@ function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12 pt-8">
           <div>
-            <div className="mb-6">
+            <div className="mb-2">
               <img
-                src="/Foodzippy_Final_1.jpg"
+                src="/foodzippy-logo.png"
                 alt="Foodzippy logo"
-                className="h-16 sm:h-20 md:h-28 w-auto object-contain"
+                className="h-24 sm:h-32 md:h-40 w-auto object-contain"
                 loading="lazy"
                 onError={(e) => {
                   const el = e.currentTarget as HTMLImageElement;
