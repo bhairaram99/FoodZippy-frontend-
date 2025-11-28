@@ -27,7 +27,7 @@ function PartnershipSection() {
     <section className="py-16 sm:py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl font-century-gothic sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Want to Join With us?
           </h2>
           <p className="text-lg sm:text-xl text-gray-600">

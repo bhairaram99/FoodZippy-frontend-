@@ -65,19 +65,20 @@ function Hero() {
 
       {/* TEXT CONTENT */}
       <div className="relative z-20 max-w-7xl mx-auto px-6 text-center mt-28">
-        <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold">
+        <h1 className="font-century-gothic text-[#F7C150] text-5xl sm:text-6xl md:text-7xl font-bold">
           Delivering Love to Students
         </h1>
 
-        <p className="text-3xl sm:text-4xl md:text-5xl mt-6 font-semibold">
+        <p className="font-century-gothic text-3xl sm:text-4xl md:text-5xl mt-6 font-semibold">
           Fresh food, lowest commissions
         </p>
 
-        <p className="text-3xl sm:text-4xl md:text-5xl mt-10 font-semibold">
+        <p className="font-century-gothic text-3xl sm:text-4xl md:text-5xl mt-10 font-semibold">
           Coming soon to your campus!
         </p>
-
-        <p className="text-3xl sm:text-4xl md:text-5xl mt-6 font-semibold">
+        <br></br>
+        <br></br>
+        <p className="font-century-gothic text-3xl sm:text-4xl md:text-5xl mt-8 font-semibold">
           We are launching soon in Agra & Noida
         </p>
       </div>

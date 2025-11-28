@@ -44,24 +44,23 @@ function Navbar({ onOpenStoryPanel }: NavbarProps) {
           <div className="hidden md:flex items-center space-x-8">
             <button
               onClick={onOpenStoryPanel}
-              className="text-white hover:text-yellow-100 transition-colors duration-200 font-medium"
-            >
+              className="text-white hover:text-black font-century-gothic  font-medium hover:bg-white  px-5 py-2 rounded-full transition-all duration-300" >
               Our Story
             </button>
-            <a href="#services" className="text-white hover:text-yellow-100 transition-colors duration-200 font-medium">
+            <a href="#services" className="text-white hover:text-black font-century-gothic hover:bg-white px-5 py-2 rounded-full transition-all duration-300 font-medium">
               Services
             </a>
-            <a href="#restaurants" className="text-white hover:text-yellow-100 transition-colors duration-200 font-medium">
+            <a href="#restaurants" className="text-white hover:text-black font-century-gothic hover:bg-white px-5 py-2 rounded-full transition-all duration-300 font-medium">
               Restaurants
             </a>
-            <a href="#how-it-works" className="text-white hover:text-yellow-100 transition-colors duration-200 font-medium">
+            <a href="#how-it-works" className="text-white hover:text-black font-century-gothic hover:bg-white px-5 py-2 rounded-full transition-all duration-300 font-medium">
               How It Works
             </a>
-            <button className="text-white hover:text-yellow-100 transition-colors duration-200 font-medium flex items-center gap-2">
+            <button className="text-white hover:text-black font-century-gothic transition-all hover:bg-white px-5 py-2 rounded-full  duration-200 font-medium flex items-center gap-2">
               <MapPin size={20} />
               Choose your city
             </button>
-            <button className=" text-white px-6 py-2 rounded-full hover:text-yellow-100 transition-all duration-200  ">
+            <button className=" text-white  hover:text-black font-century-gothic  hover:bg-white px-5 py-2 rounded-full  transition-all duration-200  ">
               Order Now
             </button>
           </div>

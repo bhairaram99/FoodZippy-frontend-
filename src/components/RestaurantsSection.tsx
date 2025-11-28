@@ -98,10 +98,10 @@ function RestaurantsSection() {
     <section id="restaurants" className="py-16 sm:py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl font-century-gothic sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Best Restaurants in Your City
           </h2>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl font-century-gothic text-gray-600 max-w-3xl mx-auto">
             Discover amazing restaurants offering the best food at student-friendly prices.
           </p>
         </div>
@@ -111,7 +111,7 @@ function RestaurantsSection() {
             <div
               key={index}
               ref={(el) => (cardRefs.current[index] = el)}
-              className={`bg-white rounded-2xl shadow-lg overflow-hidden transition-opacity transition-transform duration-500 hover:shadow-2xl ${
+              className={`bg-white rounded-2xl shadow-lg overflow-hidden transition-opacity duration-500 hover:shadow-2xl ${
                 visibleCards[index] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
               style={{

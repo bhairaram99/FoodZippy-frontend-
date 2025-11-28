@@ -56,7 +56,7 @@ function TestimonialsSection() {
   return (
     <section className="py-16 sm:py-24 bg-white">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 text-center mb-16">
+        <h2 className="text-3xl font-century-gothic sm:text-4xl md:text-5xl font-bold text-gray-900 text-center mb-16">
           What Students Say About Us
         </h2>
 
