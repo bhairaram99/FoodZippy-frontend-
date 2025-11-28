@@ -81,26 +81,27 @@ function Hero() {
         <p className="font-century-gothic text-3xl sm:text-4xl md:text-5xl mt-8 font-semibold">
           We are launching soon in Agra & Noida
         </p>
-        {/* APP STORE BUTTONS */}
-  <div className="mt-12 flex items-center justify-center gap-6">
-    <a href="#" className="inline-block">
-      <img
-        src="/google-play.png"
-        alt="Get it on Google Play"
-        className="h-24 w-auto"
-        draggable="false"
-      />
-    </a>
+       {/* APP STORE BUTTONS */}
+<div className="mt-12 flex items-center justify-center gap-6">
+  <a href="#" className="inline-block">
+    <img
+      src="/google-play.png"
+      alt="Get it on Google Play"
+      className="h-24 w-auto transition-transform duration-300 hover:scale-110"
+      draggable="false"
+    />
+  </a>
 
-    <a href="#" className="inline-block">
-      <img
-        src="/app-store.png"
-        alt="Download on the App Store"
-        className="h-24 w-auto"
-        draggable="false"
-      />
-    </a>
-  </div>
+  <a href="#" className="inline-block">
+    <img
+      src="/app-store.png"
+      alt="Download on the App Store"
+      className="h-24 w-auto transition-transform duration-300 hover:scale-110"
+      draggable="false"
+    />
+  </a>
+</div>
+
       </div>
     </section>
   );
